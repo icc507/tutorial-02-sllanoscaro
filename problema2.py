@@ -9,6 +9,7 @@
 #         (77, 'jiji', 'hola', 90, 20)
 t = list(input().split())
 
+
 for i in range(len(t)):
         try: 
             t[i] = int(t[i])
