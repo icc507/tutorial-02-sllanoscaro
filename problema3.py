@@ -9,5 +9,31 @@
 #         20 30 90 90 8 5 90
 #La salida debe ser
 #         [20, [8, [5, [], [], []], [], []], [], [30, [], [], [90, [], [90, [], [90, [], [], []], []], []]]]
-t = input()
-print(t)
+
+def insertar_arbol(arbol, numero):
+    if not arbol:
+        return [numero, [], [], []]
+    elif numero < arbol[0]:
+        arbol[1] = insertar_arbol(arbol[1], numero)
+    elif numero == arbol[0]:
+        arbol[2] = insertar_arbol(arbol[2], numero)
+    else:
+        arbol[3] = insertar_arbol(arbol[3], numero)
+    return arbol
+
+def imprimir_arbol(arbol):
+    if not arbol:
+        return "[]"
+    else:
+        return "[" + str(arbol[0]) + ", " + imprimir_arbol(arbol[1]) + ", " + imprimir_arbol(arbol[2]) + ", " + imprimir_arbol(arbol[3]) + "]"
+
+entrada = input("Ingrese los números separados por espacios: ")
+numeros = list(map(int, entrada.split()))
+
+arbol = None
+for numero in numeros:
+    arbol = insertar_arbol(arbol, numero)
+
+print("El árbol trinario es:")
+print(imprimir_arbol(arbol))
+
