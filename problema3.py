@@ -27,13 +27,12 @@ def imprimir_arbol(arbol):
     else:
         return "[" + str(arbol[0]) + ", " + imprimir_arbol(arbol[1]) + ", " + imprimir_arbol(arbol[2]) + ", " + imprimir_arbol(arbol[3]) + "]"
 
-entrada = input("Ingrese los números separados por espacios: ")
+entrada = input()
 numeros = list(map(int, entrada.split()))
 
 arbol = None
 for numero in numeros:
     arbol = insertar_arbol(arbol, numero)
 
-print("El árbol trinario es:")
 print(imprimir_arbol(arbol))
 
