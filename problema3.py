@@ -21,12 +21,6 @@ def insertar_arbol(arbol, numero):
         arbol[3] = insertar_arbol(arbol[3], numero)
     return arbol
 
-def imprimir_arbol(arbol):
-    if not arbol:
-        return "[]"
-    else:
-        return "[" + str(arbol[0]) + ", " + imprimir_arbol(arbol[1]) + ", " + imprimir_arbol(arbol[2]) + ", " + imprimir_arbol(arbol[3]) + "]"
-
 entrada = input()
 numeros = list(map(int, entrada.split()))
 
@@ -34,5 +28,5 @@ arbol = None
 for numero in numeros:
     arbol = insertar_arbol(arbol, numero)
 
-print(imprimir_arbol(arbol))
+print(arbol)
 
