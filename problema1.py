@@ -9,7 +9,23 @@
 #		  mundo 44
 #La salida debe ser
 #         ('mundo', 44, 20, 90, 'hola', 'mundo', 44)
-t1 = tuple(input().split())
-t2 = tuple(input().split())
-output = t2 + t1 + t2
+t1 = list(input().split())
+t2 = list(input().split())
+
+def convertirNum(lista):
+    for i in range(len(lista)):
+        try: 
+            lista[i] = int(lista[i])
+        except:
+            pass
+    return lista
+
+lista_t1 = convertirNum(t1)
+lista_t2 = convertirNum(t2)
+
+tupla_t1 = tuple(lista_t1)
+tupla_t2 = tuple(lista_t2)
+
+output = tupla_t2 + tupla_t1 + tupla_t2
+
 print(output)
